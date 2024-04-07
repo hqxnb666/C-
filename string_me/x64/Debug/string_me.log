@@ -1,0 +1,25 @@
+﻿  string.cpp
+D:\code\string_me\my_string.h(31,23): error C2544: 应输入运算符“()”的“)”
+D:\code\string_me\my_string.h(31,14): error C2473: “operator ()”: 看起来像函数定义，但却没有参数列表。
+D:\code\string_me\my_string.h(31,30): error C2530: “my_string::()”: 必须初始化引用
+D:\code\string_me\my_string.h(31,23): error C2146: 语法错误: 缺少“;”(在标识符“size_t”的前面)
+D:\code\string_me\my_string.h(31,33): error C2059: 语法错误:“)”
+D:\code\string_me\my_string.h(31,35): error C2143: 语法错误: 缺少“;”(在“const”的前面)
+D:\code\string_me\my_string.h(32,2): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+D:\code\string_me\my_string.h(32,2): error C2059: 语法错误:“{”
+D:\code\string_me\my_string.h(32,2): error C2143: 语法错误: 缺少“;”(在“{”的前面)
+D:\code\string_me\my_string.h(32,2): error C2447: “{”: 缺少函数标题(是否是老式的形式表?)
+D:\code\string_me\string.cpp(81,16): error C2084: 函数“std::istream &my_string::operator >>(std::istream &,const my_string::string &)”已有主体
+D:\code\string_me\my_string.h(43,17): message : 参见“>>”的前一个定义
+  test.cpp
+D:\code\string_me\my_string.h(31,23): error C2544: 应输入运算符“()”的“)”
+D:\code\string_me\my_string.h(31,14): error C2473: “operator ()”: 看起来像函数定义，但却没有参数列表。
+D:\code\string_me\my_string.h(31,30): error C2530: “my_string::()”: 必须初始化引用
+D:\code\string_me\my_string.h(31,23): error C2146: 语法错误: 缺少“;”(在标识符“size_t”的前面)
+D:\code\string_me\my_string.h(31,33): error C2059: 语法错误:“)”
+D:\code\string_me\my_string.h(31,35): error C2143: 语法错误: 缺少“;”(在“const”的前面)
+D:\code\string_me\my_string.h(32,2): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+D:\code\string_me\my_string.h(32,2): error C2059: 语法错误:“{”
+D:\code\string_me\my_string.h(32,2): error C2143: 语法错误: 缺少“;”(在“{”的前面)
+D:\code\string_me\my_string.h(32,2): error C2447: “{”: 缺少函数标题(是否是老式的形式表?)
+  正在生成代码...
