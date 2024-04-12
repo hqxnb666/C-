@@ -3,6 +3,7 @@
 
 
 namespace my_string {
+	const int string::npos = -1;
 	const char* string::c_str() const
 	{
 		return _str;
@@ -22,6 +23,39 @@ namespace my_string {
 	 string::const_iterator string::end() const
 	 {
 		 return _str + _size;
+	 }
+
+	 void string::reserve(size_t n)
+	 {
+		 if (n > _capacity)
+		 {
+			 char* tmp = new char[n + 1];
+			 strcpy(tmp, _str);
+			 delete[]_str;
+			 _str = tmp;
+			 _capacity = n;
+		 }
+	 }
+	 void string::pushback(char ch)
+	 {
+		 if (_size == _capacity)
+		 {
+			 reserve(_capacity == 0 ? 4 : 2 * _capacity);
+		 }
+		 _str[_size] = ch;
+		 _size++;
+		 _str[_size] = '\0';
+	 }
+	 void string::append(const char* str)
+	 {
+		 size_t len = strlen(str);
+		 if (_size + len > _capacity)
+		 {
+			 reserve(_size + len);
+		 }
+		 strcpy(_str + _size, str);
+		 _size += len;
+		
 	 }
 	void string:: swap(string& s)
 	{
@@ -71,9 +105,114 @@ namespace my_string {
 		_capacity = s._capacity;
 		return *this;
 	}*/
+	size_t string::find(char ch, size_t pos ) const
+	{
+		assert(pos < _size);
+		for (size_t i = pos	; i < _size; i++)
+		{
+			if (_str[i] == ch)
+			{
+				return i;
+			}
+		}
+		return npos;
+	}
+	size_t string::find(char* sub, size_t pos )const
+	{
+		assert(pos < _size);
+		const char* p = strstr(_str + pos, sub);
+		if (p)
+		{
+			return p - _str;
+		}
+		else
+		{
+			return npos;
+		}
+	}
+	size_t string::size()const
+	{
+		return _size;
+	}
+	size_t string::capacity()const
+	{
+		return _capacity;
+	}
+	void string::insert(size_t pos, char ch)
+	{
+		assert(pos <= _size);
+			if (_size == _capacity)
+			{
+				reserve(_capacity == 0 ? 4 : 2 * _capacity);
+			}
+		int end = _size + 1;
+		while (end > pos)
+		{
+			_str[end--] = _str[end - 1];
+		}
+		_str[end] = ch;
+		_size++;
+
+	}
+	void string::earse(size_t pos, size_t len )
+	{
+		assert(pos < _size);
+		if (len == npos || len >= _size - pos)
+		{
+			_str[pos] = '\0';
+			_size = pos;
+		}
+		else
+		{
+			strcpy(_str + pos, _str + pos + len);
+			_size -= len;
+		}
+	}
+	void string::insert(size_t pos, const char* str)
+	{
+		assert(pos <= _size);
+		size_t len = strlen(str);
+		if (_size + len > _capacity)
+		{
+			reserve(_size + len);
+		}
+		int end = _size + 1;
+		while (end > pos)
+		{
+			_str[end - 1 + len] = _str[end - 1];
+			--end;
+		}
+		strncpy(_str + pos, str, len);
+		_size += len;
+	}
+	void string::resize(size_t n, char ch )
+	{
+		if (n <= _size)
+		{
+			_str[n] = '\0';
+			_size = n;
+		}
+		else
+		{
+			reserve(n);
+			for (size_t i = _size; i < n; i++)
+			{
+				_str[i++] = ch;
+			}
+			_str[n] = '\0';
+			_size = n;
+		}
+	}
+	string& string::operator+=(char ch)
+	{
+		pushback(ch);
+		return *this;
+	}
 	string& string::operator+=(const char* str)
 	{
 		//要先实现pushback 和  append
+		append(str);
+		return *this;
 	}
 	string& string::operator=(string tmp)
 	{
@@ -115,5 +254,8 @@ namespace my_string {
 		}
 		return in;
 	}
-	
+	bool string::empty()const
+	{
+		return _str == nullptr ? false : true;
+	}
 }
