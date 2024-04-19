@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Bridge | 活动列表</title>
+  <link href="./css/common.css" rel="stylesheet" />
+  <link href="./css/product.css" rel="stylesheet" />
+  <link href="./css/activity_list_new.css" rel="stylesheet">
+  <link href="http://at.alicdn.com/t/font_1523639_ddg5pxjy3cp.css" rel="stylesheet" />
+  <!-- <script src="index.js"></script> -->
+</head>
+
+<body>
+  <!--页眉-->
+  <div id="header">
+    <div class="black-mask">
+      <!--顶部1 联系方式、搜索框、登陆-->
+      <div id="top1">
+        <div class="contact iconfont">
+          <div>
+            <div class="header-bar-email">
+              <a href="#">321@suda.edu.cn</a>
+            </div>
+
+            <div class="header-bar-tel">
+              <span>86-133-3333-3333</span>
+            </div>
+          </div>
+
+          <div class="header-bar-right">
+            <div class="header-bar-search">
+              <form>
+                <input placeholder="你想知道什么？" type="search">
+                <button class="button iconfont icon-sousuo" type="submit"></button>
+              </form>
+            </div>
+
+            <div id="user_info" class="header-bar-login"></div>
+          </div>
+        </div>
+      </div>
+      <!--顶部2 图片-->
+      <div id="top2">
+        <!--顶部2.1 蒙版-->
+        <div id="white-masking">
+          <!--顶部2.1.1 导航栏-->
+          <div class="center" id="navbar">
+            <h1 class="site-title"><a href="#">Bir<span>dge</span></a></h1>
+            <div class="site-navbar">
+              <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="./activity_list_new.html">教育资源库</a></li>
+                <li><a href="./grxx.html">我的信息</a></li>
+                <li class="current-item"><a href="./product.html">本地资源指南</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="cls"></div>
+        <!--顶部2.2 标题-->
+        <div id="top-title">
+          <span>积分兑换</span>
+          <span id="score">
+            <!-- 我的积分 -->
+          </span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!--内容-->
+  <div class="product" id="container">
+    <!-- 积分商品 -->
+  </div>
+  <!--页脚-->
+  <div id="footer">
+    <div class="aline">
+    </div>
+    <div class="container">
+      <img src="images/logo.png" alt="" />
+      <br>
+      <span>Bridge 服务于广大志愿者和志愿者组织。如果您想做出更大的贡献，让更多的人感受到你的爱，快来加入我们吧，期待您的到来！</span>
+    </div>
+  </div>
+</body>
+
+</html>
+<script type="module">
+  import request from './common/request.js'
+
+  const onProductClick = async(productId) => {
+    await request.post('/softProduct/exchangeProduct', { productId })
+    alert('兑换成功')
+    window.history.go()
+  }
+
+  const init = () => {
+    const mUserInfo = JSON.parse(localStorage.getItem('user_info') || '{}')
+    if (!localStorage.getItem('token')) {
+      user_info.innerHTML = `
+        <ul class="">
+          <li><a href="./zhuce.html" target="_blank">注册</a></li>
+          <li>/</li>
+          <li><a href="./login.html">登录</a></li>
+        </ul>
+      `
+    } else {
+      user_info.innerHTML = `
+        <div>
+          <span>欢迎您，${mUserInfo.userName}</span>
+          <button onclick="localStorage.clear();location.href='/login.html'">退出</button>
+        </div>
+      `
+    }
+  }
+
+  window.addEventListener('load', async () => {
+    init()
+
+    const mProductList = await request.get('/softProduct/getAllList')
+    container.innerHTML = mProductList.map(item => {
+      return `
+      <div class="product_item">
+        <img src="${item.productImage}" alt="${item.productName}">
+        <div class="control">
+          <div>${item.productName}（${item.score}积分）</div>
+          <div class="product_item_submit" onclick="onProductClick(${item.productId})">兑换</div>
+        </div>
+      </div>
+    `
+    }).join('')
+
+    const mInfo = await request.get('/user/getUserInfo')
+    score.innerHTML = `<span>(积分：${mInfo.userScore})</span>`
+  })
+  window.init = init
+  window.onProductClick = onProductClick
+</script>
