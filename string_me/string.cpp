@@ -216,7 +216,7 @@ namespace my_string {
 	}
 	string& string::operator=(string tmp)
 	{
-		swap(tmp);
+		swap(tmp);  //这个是传值传参调用拷贝构造 //现代写法的本质是一种复用
 		return *this;
 	}
 
