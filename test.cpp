@@ -1,21 +1,17 @@
 #define _CRT_SECURE_NO_WARNINGS
-#include "vector.h"
 #include <iostream>
+#include <string>
+#include <algorithm>
+
 using namespace std;
-void test1()
-{
-	bit::vector<int> v1;
-	v1.push_back(1);
-	v1.push_back(2);
-	v1.push_back(3);
-	v1.push_back(4);
-	v1.push_back(4);
-	v1.push_back(4);
-	print_vector(v1);
-	
-}
+
 int main()
 {
-	test1();
+	/*int n = 10;
+	cout << n << endl;
+	cin >> n;
+	string str;*/
+	int n = 2;
+	cin >> n;
 	return 0;
 }
