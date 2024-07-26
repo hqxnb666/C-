@@ -1,265 +1,192 @@
-#define _CRT_SECURE_NO_WARNINGS 1
+ï»¿#define _CRT_SECURE_NO_WARNINGS 1
 #include <stdio.h>
+#include <stdbool.h>
 //int main()
 //{
-//	int num =  0;
-//	printf("%d", num);
-//	return 0;
-//}
-
-//int main()
-//{
-//	//ÊäÈëÒ»¸öÕûÊı£¬ÅĞ¶ÏÊÇ·ñÎªÆæÊı
-//	int num = 0;
-//	scanf("%d", &num);
-//	if (num % 2 == 1)
-//		printf("%d ÊÇÆæÊı\n", num);
-//	else
-//		printf("%d ÊÇÅ¼Êı\n", num);
-//	return 0;
-//}
-
-//int main()
-//{
-//	int age = 0;
-//	scanf("%d", &age);
-//	if (age >= 18)
+//	int day = 0;
+//	scanf("%d", &day);
+//	switch (day)
 //	{
-//		printf("³ÉÄêÁË\n");
-//		printf("¿ÉÒÔÌ¸Áµ°®ÁË\n");
+//	
+//	
+//	case 1:
+//	case 2:
+//	case 3:
+//	case 4:
+//	case 5:
+//		printf("å·¥ä½œæ—¥\n");
+//		break;
+//	case 6:
+//	case 7:
+//		printf("ä¼‘æ¯æ—¥\n");
+//		break;
+//	default:
+//		printf("è¾“å…¥é”™è¯¯\n");
+//		break;
 //	}
-//		
-//	else
-//	{
-//		printf("Î´³ÉÄê\n");
-//		printf("×îºÃ²»ÒªÌ¸Áµ°®\n");
-//	}
-//		
+//	 
 //	return 0;
 //}
 
+
 //int main()
 //{
-//	int num = 0;
-//	scanf("%d", &num);
-//	if (num == 0)
-//		printf("ÊäÈëµÄÊı×ÖÊÇ0\n");
-//	else
+//	while (1)
+//		printf("hehe\n"); //whileåè¾¹çš„æ¡ä»¶æ»¡â¾œï¼Œæ­»å¾ªç¯çš„æ‰“å°hehe
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	int i = 1;
+//	while (i <= 10)
 //	{
-//		if (num > 0)
-//			printf("ÊäÈëµÄÊıÊÇÕıÊı\n");
-//		else
-//			printf("ÊäÈëµÄµÄÊıÊÇ¸ºÊı\n");
+//		printf("%d\n", i);
+//		i++;
 //	}
 //	return 0;
 //}
 
-//int main()
-//{
-//	int num = 0;
-//	scanf("%d", &num);
-//	if (num == 0)
-//		printf("ÊäÈëµÄÊı×ÖÊÇ0\n");
-//	else if (num > 0)
-//		printf("ÊäÈëµÄÊı×ÖÊÇÕıÊı\n");
-//	else
-//		printf("ÊäÈëµÄÊı×ÖÊÇ¸ºÊı\n");
-//	return 0;
-//}
+
 
 //int main()
 //{
-//	int num = 0;
-//	scanf("%d", &num);
-//	if (num > 0)
+//	
+//	int n = 0;
+//	scanf("%d", &n);
+//	while (n)
 //	{
-//		if (num % 2 == 0)
-//			printf("Å¼Êı\n");
-//		else
-//			printf("ÆæÊı\n");
-//	}
-//	else
-//	{
-//		printf("²»ÊÇÕıÊı\n");
+//		printf("%d\n", n % 10);
+//		 n /= 10;
 //	}
 //	return 0;
 //}
 
 //int main()
 //{
-//	int age = 0;
-//	scanf("%d", &age);
-//	if (age < 18)
-//		printf("ÉÙÄê\n");
-//	else
+//	int i = 0;
+//	for (i = 1; i<= 10; i++)
 //	{
-//		if (age <= 44)
+//		printf("%d\n", i);
+//	}
+//
+//     
+//	return 0;
+//}
+
+//int main()
+//{
+//	//éå†
+//	int i = 0;
+//	int sum = 0;
+//	for (i = 3; i < 100; i += 3)
+//	{
+//		sum += i;
+//	}
+//	printf("sum = %d\n", sum);
+//	return 0;
+//}
+
+//int main()
+//{
+//	int i = 1;
+//	do {
+//		printf("%d\n", i);
+//		i++;
+//	} while (i <= 10);
+//	return 0;
+//}
+
+//int main()
+//{
+//	int n = 0;
+//	scanf("%d", &n);
+//	int cnt = 0;
+//	do
+//	{
+//		n /= 10;
+//		cnt++;
+//	} while (n);
+//	printf("%d", cnt);
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	
+//	int n = 0;
+//	scanf("%d", &n);
+//	while (n)
+//	{
+//		if (n == 12)
+//			continue;
+//		printf("%d\n", n % 10);
+//		 n /= 10;
+//	}
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	int i = 0;
+//	for (i = 100; i <= 200; i++)
+//	{
+//		//åˆ¤æ–­iæ˜¯å¦æ˜¯ç´ æ•°
+//		//ä½¿ç”¨  2~ i-1çš„æ•°å­—æ¥è¯•é™¤i
+//		int j = 0;
+//		int flag = 1; //å‡è®¾iæ˜¯ç´ æ•°
+//		for (j = 2; j <= i - 1; j++)
 //		{
-//			printf("ÇàÄê\n");
-//		}
-//		else
-//		{
-//			if (age <= 59)
-//				printf("ÖĞÀÏÄê\n");
-//			else
+//			if (i % j == 0)
 //			{
-//				if (age < 89)
-//					printf("ÀÏÄê\n");
-//				else
-//					printf("ÀÏÊÙĞÇ\n");
+//				flag = 0;
+//				break;
 //			}
 //		}
+//		if (flag == 1)
+//		{
+//			printf("%d ", i);
+//		}
 //	}
 //	return 0;
 //}
 
-//int main()
-//{
-//	int age = 0;
-//	scanf("%d", &age);
-//	if (age < 18)
-//		printf("ÉÙÄê\n");
-//	else if (age <= 44)
-//		printf("ÇàÄê\n");
-//	else if (age < 59)
-//		printf("ÖĞÀÏÄê\n");
-//	else if (age <= 89)
-//		printf("ÀÏÄê\n");
-//	else
-//		printf("ÀÏÊÙĞÇ\n");
-//	return 0;
+//bool isPrime(int num) {
+//	if (num <= 1) 
+//		return false;
+//	for (int i = 2; i * i <= num; i++) {
+//		if (num % i == 0)
+//			return false;
+//	}
+//	return true;
 //}
-
-//int main()
-//{
-//	int a = 0;
-//	int b = 2;
-//	if (a == 1)
-//		if (b == 2)
-//			printf("hehe\n");
-//		else
-//			printf("haha\n");
-//	return 0;
-//}
-
-//int main()
-//{
-//	int r = 3 > 5;
-//	printf("%d", r);
-//	return 0;
-//}
-
-//int main()
-//{
-//	int a = 4;
-//	if (3 == a)
-//		printf("hehe\n");
-//	return 0;
-//}
-
-
-//int main()
-//{
-//	int i = 8;
-//	int j = 10;
-//	int k = 9;
-//	if (i < j  && j < k)
-//		printf("hehe\n");
-//	else
-//		printf("haha\n");
 //
+//int main()
+//{
+//	int i = 0;
+//	for (i = 100; i <= 200; i++) {
+//		if (isPrime(i)) {
+//			printf("%d ", i);
+//		}
+//	}
+//	printf("\n");
 //	return 0;
 //}
 
 //int main()
 //{
-//	int age = 0;
-//	scanf("%d", &age);
-//	if (age >= 18 && age <= 36)
-//		printf("ÇàÄê\n");
-//	else
-//		printf("·ÇÇàÄê\n");
-//	return 0;
-//}
-
-//int main()
-//{
-//	int flag = 0;
-//	if (!flag)
-//		printf("hehe\n");
+//	/*printf("hehe\n");
+//	goto end;
+//	printf("haha\n");
+//end:
+//	printf("è·³è¿‡hahaçš„æ‰“å°ï¼Œç›´æ¥æ¥åˆ°è¿™é‡Œ");*/
 //
-//	return 0;
-//}
-
-//int main()
-//{
-//	int month = 0;
-//	scanf("%d", &month);
-//	//3~5ÊÇ´º¼¾
-//	if (month >= 3 && month <= 5)
-//	{
-//		printf("´º¼¾\n");
 //
-//	}
+//again:
+//	printf("haha\n");
+//	goto again;
 //	return 0;
 //}
-
-//int main()
-//{
-//	int month = 0;
-//	scanf("%d", &month);
-//	//12  1  2ÊÇ¶¬¼¾
-//	if (month == 12 || 1 == month || 2 == month)
-//	{
-//		printf("¶¬¼¾\n");
-//	}
-//	return 0;
-//}
-
-//int main()
-//{
-//	int year = 0;
-//	scanf("%d", &year);
-//	if (year % 4 == 0 && year % 100 != 0)
-//	{
-//		printf("yes\n");
-//	}
-//	else
-//	{
-//		if (year % 400 == 0)
-//			printf("yes\n");
-//	}
-//	return 0;
-//}
-
-//int main()
-//{
-//	int year = 0;
-//	scanf("%d", &year);
-//	if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0))
-//	{
-//		printf("yes\n");
-//	}
-//	return 0;
-//}
-
-int main()
-{
-	int num = 0;
-	scanf("%d", &num);
-	switch(num % 3)
-	{
-		case 0:
-			printf("ÓàÊıÊÇ0\n");
-			break;
-		case 1:
-			printf("ÓàÊıÊÇ1\n");
-			break;
-		case 2:
-			printf("ÓàÊıÊÇ2\n");
-			break;
-		default:
-			printf("´íÎó\n");
-	}
-	return 0;
-}
