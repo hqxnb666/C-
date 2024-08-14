@@ -7,10 +7,12 @@ class Car
 public:
 	//纯虚函数
 	virtual void Drive() = 0;
+	//无法实例化
+
 };
 int main()
 {
-	Car c;
+	//Car c;
 	
 	return 0;
 }
