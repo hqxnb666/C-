@@ -1,23 +1,17 @@
 #define _CRT_SECURE_NO_WARNINGS 1
-#include <iostream>
-using namespace std;
-template<class K, class V>
-struct AVLTreeNode
+//#include <iostream>
+#include "AVLTree.h"
+//using namespace std;
+int main()
 {
-	AVLTreeNode<K, V>* _left;
-	AVLTreeNode<K, V>* _right;
-	AVLTreeNode<K, V>* _parent;
-	pair<K, V> _kv;
-
-	AVLTreeNode(const pair<K,V>& _kv)
-		:_left(nullptr)
-		,_right(nullptr)
-		,_kv(_kv)
-	{}
-};
-
-template<class K, class V>
-class AVLTree
-{
-
-};
+	int a[] = { 1,3,4,7,8,6,10 };
+	AVLTree<int, int> a1;
+	for (auto e : a)
+	{
+		a1.insert({ e,e });
+	}
+	
+	a1.InOrder();
+	cout << a1.IsBalance() << endl;
+	return 0;
+}
