@@ -115,8 +115,15 @@ public:
 						rightMin = rightMin->_left;
 					}
 					swap(cur->_key, rightMin->_key);
-					//
+					if (rightMinParent->_left == rightMin) {
+						rightMinParent->_left = rightMin->_right;
+					}
+					else {
+						rightMinParent->_right = rightMin->_right;
+					}
+					delete rightMin;
 			}
+				return true;
 	}
 	bool Find(const K& key)
 	{
@@ -152,7 +159,7 @@ public:
 		_InOrder(root->_right);
 	}
 private:
-	Node* _root = nullptr;
+	Node* _root = nulalptr;
 };
 
 void TestBSTree1()
