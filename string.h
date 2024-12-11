@@ -246,7 +246,7 @@ namespace bit {
 		}
 	}
 
-	void swap(string& s) 
+ void swap( string& s) 
 	{
 		std::swap(_str, s._str);
 		std::swap(_size, s._size);
@@ -291,10 +291,10 @@ namespace bit {
 			static const int npos;
 	};
 
-	/*void swap(const string& s1, const string& s2)
+	void swap( string& s1,  string& s2)
 	{
 		s1.swap(s2);
-	}*/
+	}
 
 	bool operator==(const string& s1, const string& s2)
 	{
